@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Uma linha do tempo visual para registrar momentos que fazem parte da sua história." />
+  <title>Minha linha do tempo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Ir para o início">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span>minha história</span>
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#linha-do-tempo">Linha do tempo</a>
+      <a href="#sobre">Sobre</a>
+    </nav>
+    <a class="header-action" href="#linha-do-tempo">Explorar <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Uma coleção de momentos</p>
+        <h1 id="page-title">Toda história<br /><em>começa em algum lugar.</em></h1>
+        <p class="hero-description">Uma linha do tempo para guardar os encontros, escolhas e pequenos instantes que deram forma ao caminho.</p>
+        <a class="primary-button" href="#linha-do-tempo">Ver a jornada <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="hero-card">
+          <span class="card-caption">memórias em movimento</span>
+          <strong>2018 — 2024</strong>
+          <span class="card-line"></span>
+        </div>
+        <div class="scribble">✳</div>
+      </div>
+    </section>
+
+    <section class="timeline-section" id="linha-do-tempo" aria-labelledby="timeline-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow"><span></span> Capítulo por capítulo</p>
+          <h2 id="timeline-title">O caminho até aqui</h2>
+        </div>
+        <p class="section-intro">Cada etapa deixou uma marca. Algumas foram planejadas, outras simplesmente aconteceram.</p>
+      </div>
+
+      <div class="timeline" role="list">
+        <article class="timeline-item featured" role="listitem">
+          <div class="timeline-date">2024 <span>— presente</span></div>
+          <div class="timeline-marker" aria-hidden="true"><span></span></div>
+          <div class="timeline-content">
+            <p class="event-type">Novo capítulo</p>
+            <h3>Um espaço para criar</h3>
+            <p>Depois de tantas ideias guardadas, nasceu um lugar para transformar curiosidade em projetos reais e dividir o processo com o mundo.</p>
+            <a href="#sobre" class="text-link">Ler mais <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+
+        <article class="timeline-item" role="listitem">
+          <div class="timeline-date">2022</div>
+          <div class="timeline-marker" aria-hidden="true"><span></span></div>
+          <div class="timeline-content">
+            <p class="event-type">Virada</p>
+            <h3>Coragem para mudar</h3>
+            <p>Um salto para fora do conhecido. O medo veio junto, mas a vontade de experimentar falou mais alto.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item" role="listitem">
+          <div class="timeline-date">2020</div>
+          <div class="timeline-marker" aria-hidden="true"><span></span></div>
+          <div class="timeline-content">
+            <p class="event-type">Descoberta</p>
+            <h3>Aprender a olhar diferente</h3>
+            <p>Entre pausas e recomeços, novos interesses apareceram. O que era passatempo ganhou espaço e propósito.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item" role="listitem">
+          <div class="timeline-date">2018</div>
+          <div class="timeline-marker" aria-hidden="true"><span></span></div>
+          <div class="timeline-content">
+            <p class="event-type">Primeiro passo</p>
+            <h3>A ideia que ficou</h3>
+            <p>Uma pergunta simples abriu a porta: e se fosse possível construir algo com as próprias mãos?</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="quote-section" id="sobre" aria-label="Citação">
+      <div class="quote-mark" aria-hidden="true">“</div>
+      <blockquote>Não é sobre chegar ao fim.<br /><em>É sobre perceber o quanto você já caminhou.</em></blockquote>
+      <p>— para lembrar nos dias corridos</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Minha linha do tempo</span>
+    <span>Feito de memórias <span aria-hidden="true">✦</span></span>
+  </footer>
+</body>
+</html>
