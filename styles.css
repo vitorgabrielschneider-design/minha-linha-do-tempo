@@ -16,6 +16,9 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
 a { color: inherit; text-decoration: none; }
+a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 4px; }
+.skip-link { background: var(--deep-green); color: #fff; left: 16px; padding: 10px 14px; position: absolute; top: -60px; z-index: 10; }
+.skip-link:focus { top: 16px; }
 .site-header { align-items: center; border-bottom: 1px solid rgba(22,35,33,.1); display: flex; justify-content: space-between; margin: 0 auto; max-width: 1240px; padding: 27px 32px; }
 .brand { align-items: center; display: flex; font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .brand-mark { color: var(--coral); font-size: 1.35rem; margin-right: 10px; }
