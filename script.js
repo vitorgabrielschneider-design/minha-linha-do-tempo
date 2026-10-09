@@ -1,14 +1,19 @@
 const filterButtons = document.querySelectorAll('.filter-button');
-const timelineItems = document.querySelectorAll('.timeline-item');
-const eventCount = document.querySelector('.event-count');
+const timelineEvents = [...document.querySelectorAll('.timeline-event')];
+const countNumber = document.querySelector('.count-number');
+const countLabel = document.querySelector('.count-label');
+const emptyState = document.querySelector('.empty-state');
 
 function filterTimeline(category) {
-  let visibleEvents = 0;
+  const matchingEvents = timelineEvents.filter(
+    (event) => category === 'all' || event.dataset.category === category,
+  );
+  const lastVisibleEvent = matchingEvents.at(-1);
 
-  timelineItems.forEach((item) => {
-    const shouldShow = category === 'all' || item.dataset.category === category;
-    item.classList.toggle('is-hidden', !shouldShow);
-    if (shouldShow) visibleEvents += 1;
+  timelineEvents.forEach((event) => {
+    const isVisible = matchingEvents.includes(event);
+    event.classList.toggle('is-hidden', !isVisible);
+    event.classList.toggle('is-last-visible', isVisible && event === lastVisibleEvent);
   });
 
   filterButtons.forEach((button) => {
@@ -17,9 +22,14 @@ function filterTimeline(category) {
     button.setAttribute('aria-pressed', String(isActive));
   });
 
-  eventCount.innerHTML = `<strong>${visibleEvents}</strong> ${visibleEvents === 1 ? 'momento' : 'momentos'}`;
+  const count = matchingEvents.length;
+  countNumber.textContent = String(count);
+  countLabel.textContent = count === 1 ? 'momento' : 'momentos';
+  emptyState.hidden = count !== 0;
 }
 
 filterButtons.forEach((button) => {
   button.addEventListener('click', () => filterTimeline(button.dataset.filter));
 });
+
+filterTimeline('all');

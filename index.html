@@ -1,124 +1,158 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Uma linha do tempo visual para registrar momentos que fazem parte da sua história." />
-  <meta name="theme-color" content="#27463d" />
-  <title>Linha do tempo | Minha história</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <a class="skip-link" href="#linha-do-tempo">Pular para a linha do tempo</a>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="Ir para o início">
-      <span class="brand-mark" aria-hidden="true">✦</span>
-      <span>minha história</span>
-    </a>
-    <nav class="main-nav" aria-label="Navegação principal">
-      <a href="#linha-do-tempo">Linha do tempo</a>
-      <a href="#sobre">Sobre</a>
-    </nav>
-    <a class="header-action" href="#linha-do-tempo">Explorar <span aria-hidden="true">↗</span></a>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Uma linha do tempo em movimento para guardar os encontros, escolhas e momentos que deram forma a uma história."
+    />
+    <meta name="theme-color" content="#f6f3eb" />
+    <title>Minha linha do tempo — uma história em movimento</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#linha-do-tempo">Pular para a linha do tempo</a>
 
-  <main id="top">
-    <section class="hero" aria-labelledby="page-title">
-      <div class="hero-copy">
-        <p class="eyebrow"><span></span> Uma coleção de momentos</p>
-        <h1 id="page-title">Toda história<br /><em>começa em algum lugar.</em></h1>
-        <p class="hero-description">Uma linha do tempo para guardar os encontros, escolhas e pequenos instantes que deram forma ao caminho.</p>
-        <a class="primary-button" href="#linha-do-tempo">Ver a jornada <span aria-hidden="true">↓</span></a>
-      </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="orb orb-one"></div>
-        <div class="orb orb-two"></div>
-        <div class="hero-card">
-          <span class="card-caption">memórias em movimento</span>
-          <strong>2018 — 2024</strong>
-          <span class="card-line"></span>
+    <header class="site-header" id="topo">
+      <a class="brand" href="#topo" aria-label="Minha linha do tempo — início">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span class="brand-name">minha linha<span>do tempo</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="#linha-do-tempo">A jornada</a>
+        <a href="#sobre">Sobre a história</a>
+      </nav>
+
+      <a class="header-link" href="#linha-do-tempo">
+        Explorar <span aria-hidden="true">↘</span>
+      </a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Memórias em movimento</p>
+          <h1 id="page-title">Uma vida entre<br />um ponto <em>e outro.</em></h1>
+          <p class="hero-description">
+            Ideias que nasceram pequenas, escolhas que mudaram o rumo e momentos que continuam reverberando.
+            Esta é uma história feita de encontros — e ainda está acontecendo.
+          </p>
+          <a class="primary-button" href="#linha-do-tempo">
+            <span>Conheça a jornada</span><span class="button-arrow" aria-hidden="true">↓</span>
+          </a>
+          <p class="hero-footnote"><span aria-hidden="true">✳</span> Cada lembrança encontra seu lugar.</p>
         </div>
-        <div class="scribble">✳</div>
-      </div>
-    </section>
 
-    <section class="timeline-section" id="linha-do-tempo" aria-labelledby="timeline-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow"><span></span> Capítulo por capítulo</p>
-          <h2 id="timeline-title">O caminho até aqui</h2>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <span class="orb orb-large"></span>
+          <span class="orb orb-coral"></span>
+          <span class="orb orb-small"></span>
+          <span class="orb orb-blue"></span>
+          <span class="orb orb-speck"></span>
+          <span class="art-spark spark-one">✳</span>
+          <span class="art-spark spark-two">✦</span>
+          <div class="orbit-label"><span>2018</span><i></i><span>agora</span></div>
+          <p class="art-caption">tudo se conecta</p>
         </div>
-        <p class="section-intro">Cada etapa deixou uma marca. Algumas foram planejadas, outras simplesmente aconteceram.</p>
-      </div>
 
-      <div class="timeline-toolbar" aria-label="Filtros da linha do tempo">
-        <div class="filter-group" role="group" aria-label="Filtrar eventos">
-          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Todos</button>
-          <button class="filter-button" type="button" data-filter="criação" aria-pressed="false">Criação</button>
-          <button class="filter-button" type="button" data-filter="virada" aria-pressed="false">Viradas</button>
-          <button class="filter-button" type="button" data-filter="descoberta" aria-pressed="false">Descobertas</button>
+        <a class="scroll-cue" href="#linha-do-tempo" aria-label="Rolar até a linha do tempo">
+          <span aria-hidden="true">↓</span>
+        </a>
+      </section>
+
+      <section class="timeline-section" id="linha-do-tempo" aria-labelledby="timeline-title">
+        <div class="section-topline"><span>01 / A jornada</span><span>2018 — presente</span></div>
+
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Capítulo por capítulo</p>
+            <h2 id="timeline-title">O caminho<br /><em>até aqui.</em></h2>
+          </div>
+          <p class="section-intro">
+            Algumas coisas começaram como uma ideia. Outras apareceram sem avisar. Todas deixaram alguma coisa pelo caminho.
+          </p>
         </div>
-        <p class="event-count" aria-live="polite"><strong>4</strong> momentos</p>
-      </div>
 
-      <div class="timeline" role="list">
-        <article class="timeline-item featured" role="listitem" data-category="criação">
-          <div class="timeline-date">2024 <span>— presente</span></div>
-          <div class="timeline-marker" aria-hidden="true"><span></span></div>
-          <div class="timeline-content">
-            <p class="event-type">Novo capítulo</p>
-            <h3>Um espaço para criar</h3>
-            <p>Depois de tantas ideias guardadas, nasceu um lugar para transformar curiosidade em projetos reais e dividir o processo com o mundo.</p>
-            <a href="#sobre" class="text-link">Ler mais <span aria-hidden="true">↗</span></a>
+        <div class="timeline-toolbar">
+          <div class="filter-group" role="group" aria-label="Filtrar momentos por categoria">
+            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Tudo</button>
+            <button class="filter-button" type="button" data-filter="criação" aria-pressed="false">Criação</button>
+            <button class="filter-button" type="button" data-filter="virada" aria-pressed="false">Viradas</button>
+            <button class="filter-button" type="button" data-filter="descoberta" aria-pressed="false">Descobertas</button>
           </div>
-        </article>
+          <p class="event-count" aria-live="polite" aria-atomic="true"><strong class="count-number">4</strong> <span class="count-label">momentos</span></p>
+        </div>
 
-        <article class="timeline-item" role="listitem" data-category="virada">
-          <div class="timeline-date">2022</div>
-          <div class="timeline-marker" aria-hidden="true"><span></span></div>
-          <div class="timeline-content">
-            <p class="event-type">Virada</p>
-            <h3>Coragem para mudar</h3>
-            <p>Um salto para fora do conhecido. O medo veio junto, mas a vontade de experimentar falou mais alto.</p>
-          </div>
-        </article>
+        <ol class="timeline-list" aria-label="Momentos da minha história">
+          <li class="timeline-event" data-category="criação">
+            <div class="event-date"><time datetime="2024">2024</time><span>presente</span></div>
+            <div class="event-rail" aria-hidden="true"><span class="event-node node-current"></span></div>
+            <article class="event-card event-card-featured">
+              <span class="event-kicker"><span class="kicker-dot" aria-hidden="true"></span> Novo capítulo</span>
+              <h3>Um espaço para criar</h3>
+              <p>Depois de tantas ideias guardadas, nasceu um lugar para transformar curiosidade em projetos reais e dividir o processo com o mundo.</p>
+              <a class="event-link" href="#sobre">A história continua <span aria-hidden="true">↗</span></a>
+              <span class="card-orb card-orb-one" aria-hidden="true"></span>
+              <span class="card-orb card-orb-two" aria-hidden="true"></span>
+            </article>
+          </li>
 
-        <article class="timeline-item" role="listitem" data-category="descoberta">
-          <div class="timeline-date">2020</div>
-          <div class="timeline-marker" aria-hidden="true"><span></span></div>
-          <div class="timeline-content">
-            <p class="event-type">Descoberta</p>
-            <h3>Aprender a olhar diferente</h3>
-            <p>Entre pausas e recomeços, novos interesses apareceram. O que era passatempo ganhou espaço e propósito.</p>
-          </div>
-        </article>
+          <li class="timeline-event" data-category="virada">
+            <div class="event-date"><time datetime="2022">2022</time></div>
+            <div class="event-rail" aria-hidden="true"><span class="event-node"></span></div>
+            <article class="event-card">
+              <span class="event-kicker"><span class="kicker-dot" aria-hidden="true"></span> Virada</span>
+              <h3>Coragem para mudar</h3>
+              <p>Um salto para fora do conhecido. O medo veio junto, mas a vontade de experimentar falou mais alto.</p>
+              <span class="card-orb card-orb-three" aria-hidden="true"></span>
+            </article>
+          </li>
 
-        <article class="timeline-item" role="listitem" data-category="descoberta">
-          <div class="timeline-date">2018</div>
-          <div class="timeline-marker" aria-hidden="true"><span></span></div>
-          <div class="timeline-content">
-            <p class="event-type">Primeiro passo</p>
-            <h3>A ideia que ficou</h3>
-            <p>Uma pergunta simples abriu a porta: e se fosse possível construir algo com as próprias mãos?</p>
-          </div>
-        </article>
-      </div>
-    </section>
+          <li class="timeline-event" data-category="descoberta">
+            <div class="event-date"><time datetime="2020">2020</time></div>
+            <div class="event-rail" aria-hidden="true"><span class="event-node"></span></div>
+            <article class="event-card">
+              <span class="event-kicker"><span class="kicker-dot" aria-hidden="true"></span> Descoberta</span>
+              <h3>Aprender a olhar diferente</h3>
+              <p>Entre pausas e recomeços, novos interesses apareceram. O que era passatempo ganhou espaço e propósito.</p>
+              <span class="card-orb card-orb-four" aria-hidden="true"></span>
+            </article>
+          </li>
 
-    <section class="quote-section" id="sobre" aria-label="Citação">
-      <div class="quote-mark" aria-hidden="true">“</div>
-      <blockquote>Não é sobre chegar ao fim.<br /><em>É sobre perceber o quanto você já caminhou.</em></blockquote>
-      <p>— para lembrar nos dias corridos</p>
-    </section>
-  </main>
+          <li class="timeline-event" data-category="descoberta">
+            <div class="event-date"><time datetime="2018">2018</time></div>
+            <div class="event-rail" aria-hidden="true"><span class="event-node"></span></div>
+            <article class="event-card">
+              <span class="event-kicker"><span class="kicker-dot" aria-hidden="true"></span> Primeiro passo</span>
+              <h3>A ideia que ficou</h3>
+              <p>Uma pergunta simples abriu a porta: e se fosse possível construir algo com as próprias mãos?</p>
+              <span class="card-orb card-orb-five" aria-hidden="true"></span>
+            </article>
+          </li>
+        </ol>
+        <p class="empty-state" hidden>Nenhum momento nesta categoria por enquanto.</p>
+      </section>
 
-  <footer class="site-footer">
-    <span>Minha linha do tempo</span>
-    <span>Feito de memórias <span aria-hidden="true">✦</span></span>
-  </footer>
-  <script src="script.js"></script>
-</body>
+      <section class="quote-section" id="sobre" aria-labelledby="quote-title">
+        <div class="quote-orb quote-orb-one" aria-hidden="true"></div>
+        <div class="quote-orb quote-orb-two" aria-hidden="true"></div>
+        <div class="quote-inner">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Para lembrar</p>
+          <h2 id="quote-title">Não é sobre chegar ao fim.<br /><em>É sobre notar o quanto já caminhou.</em></h2>
+          <p class="quote-signoff">— um lembrete para os dias corridos</p>
+        </div>
+        <a class="back-to-top" href="#topo">Voltar ao início <span aria-hidden="true">↑</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="footer-brand" href="#topo">minha linha do tempo <span aria-hidden="true">✳</span></a>
+      <span>Feito de memórias, escolhas e recomeços.</span>
+    </footer>
+  </body>
 </html>
