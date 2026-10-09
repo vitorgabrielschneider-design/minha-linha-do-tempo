@@ -54,8 +54,18 @@
         <p class="section-intro">Cada etapa deixou uma marca. Algumas foram planejadas, outras simplesmente aconteceram.</p>
       </div>
 
+      <div class="timeline-toolbar" aria-label="Filtros da linha do tempo">
+        <div class="filter-group" role="group" aria-label="Filtrar eventos">
+          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Todos</button>
+          <button class="filter-button" type="button" data-filter="criação" aria-pressed="false">Criação</button>
+          <button class="filter-button" type="button" data-filter="virada" aria-pressed="false">Viradas</button>
+          <button class="filter-button" type="button" data-filter="descoberta" aria-pressed="false">Descobertas</button>
+        </div>
+        <p class="event-count" aria-live="polite"><strong>4</strong> momentos</p>
+      </div>
+
       <div class="timeline" role="list">
-        <article class="timeline-item featured" role="listitem">
+        <article class="timeline-item featured" role="listitem" data-category="criação">
           <div class="timeline-date">2024 <span>— presente</span></div>
           <div class="timeline-marker" aria-hidden="true"><span></span></div>
           <div class="timeline-content">
@@ -66,7 +76,7 @@
           </div>
         </article>
 
-        <article class="timeline-item" role="listitem">
+        <article class="timeline-item" role="listitem" data-category="virada">
           <div class="timeline-date">2022</div>
           <div class="timeline-marker" aria-hidden="true"><span></span></div>
           <div class="timeline-content">
@@ -76,7 +86,7 @@
           </div>
         </article>
 
-        <article class="timeline-item" role="listitem">
+        <article class="timeline-item" role="listitem" data-category="descoberta">
           <div class="timeline-date">2020</div>
           <div class="timeline-marker" aria-hidden="true"><span></span></div>
           <div class="timeline-content">
@@ -86,7 +96,7 @@
           </div>
         </article>
 
-        <article class="timeline-item" role="listitem">
+        <article class="timeline-item" role="listitem" data-category="descoberta">
           <div class="timeline-date">2018</div>
           <div class="timeline-marker" aria-hidden="true"><span></span></div>
           <div class="timeline-content">
@@ -109,5 +119,6 @@
     <span>Minha linha do tempo</span>
     <span>Feito de memórias <span aria-hidden="true">✦</span></span>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
