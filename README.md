@@ -1,20 +1,20 @@
 # Minha história em órbita
 
-Uma página pessoal estática em HTML, CSS e JavaScript. A história é representada por uma linha do tempo vertical em forma de constelação: esferas luminosas conectam os marcos e os cartões alternam ao redor do eixo central.
+Uma página pessoal responsiva em HTML, CSS e JavaScript puro. A linha do tempo vertical organiza os marcos em **Passado**, **Presente** e **Futuro**, com esferas conectadas, cartões expansíveis e uma paleta azul profundo + gelo.
 
-## Como visualizar
+## Como usar
 
-Abra `index.html` no navegador ou sirva a pasta com qualquer servidor estático. Não há dependências JavaScript nem processo de build.
+Abra `index.html` no navegador ou sirva a pasta com qualquer servidor estático. Não há dependências JavaScript nem processo de build. Use **Adicionar marco** para registrar ou editar conquistas, acontecimentos atuais e objetivos futuros. Cada marco inclui momento, data ou previsão opcional, título e descrição; a exclusão pede confirmação.
 
-## Como personalizar sua história
+## Dados e privacidade
 
-Os quatro marcos de exemplo em `index.html` são espaços editáveis, não fatos sobre o autor. Substitua `ANO / DATA`, títulos, descrições e textos de detalhe pelas suas próprias datas e acontecimentos. Para incluir ou remover um marco, duplique ou remova um elemento `.timeline-entry` e mantenha o `data-category` correspondente a um botão de filtro.
+Os marcos são salvos em `localStorage` no navegador e dispositivo em que você os preencheu. Eles não são enviados ao GitHub nem a um servidor. Limpar os dados do navegador pode apagá-los; use **Exportar JSON** para manter uma cópia. **Importar JSON** valida o arquivo e pede confirmação antes de substituir a linha do tempo atual.
 
-As esferas alternam automaticamente entre os dois lados do eixo em telas maiores e se organizam em uma coluna em telas estreitas. Clique numa esfera ou em “Explorar este ponto” para abrir os detalhes; os filtros e o contador são controlados por `script.js`.
+Na primeira visita, aparecem exemplos identificados como editáveis — não são acontecimentos reais. Edite-os, exclua-os ou acrescente seus próprios marcos.
 
 ## Arquivos
 
-- `index.html` — conteúdo, marcos pessoais e estrutura semântica.
-- `styles.css` — visual de constelação, esferas, animações, responsividade e movimento reduzido.
-- `script.js` — seleção das esferas, detalhes expansíveis, filtros e contador.
-- `manus-routes.json` — declaração da rota da página única.
+- `index.html` — estrutura, editor, filtros e controles de backup.
+- `styles.css` — visual de constelação, cores, animações, responsividade e movimento reduzido.
+- `script.js` — cadastro, edição, remoção, ordenação, armazenamento local e importação/exportação JSON.
+- `manus-routes.json` — manifesto da rota da página única.
