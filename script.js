@@ -1,19 +1,42 @@
-const filterButtons = document.querySelectorAll('.filter-button');
-const timelineEvents = [...document.querySelectorAll('.timeline-event')];
+const filterButtons = [...document.querySelectorAll('.filter-button')];
+const timelineEntries = [...document.querySelectorAll('.timeline-entry')];
 const countNumber = document.querySelector('.count-number');
 const countLabel = document.querySelector('.count-label');
 const emptyState = document.querySelector('.empty-state');
 
-function filterTimeline(category) {
-  const matchingEvents = timelineEvents.filter(
-    (event) => category === 'all' || event.dataset.category === category,
-  );
-  const lastVisibleEvent = matchingEvents.at(-1);
+function setEntryOpen(entry, isOpen) {
+  const detail = entry.querySelector('.memory-detail');
+  const orbButton = entry.querySelector('.memory-orb');
+  const detailButton = entry.querySelector('.detail-button');
 
-  timelineEvents.forEach((event) => {
-    const isVisible = matchingEvents.includes(event);
-    event.classList.toggle('is-hidden', !isVisible);
-    event.classList.toggle('is-last-visible', isVisible && event === lastVisibleEvent);
+  detail.hidden = !isOpen;
+  orbButton.setAttribute('aria-expanded', String(isOpen));
+  detailButton.setAttribute('aria-expanded', String(isOpen));
+  detailButton.querySelector('span:first-child').textContent = isOpen
+    ? 'Recolher este ponto'
+    : 'Explorar este ponto';
+  entry.classList.toggle('is-open', isOpen);
+  entry.classList.toggle('is-selected', isOpen);
+}
+
+function toggleEntry(entry) {
+  const shouldOpen = !entry.classList.contains('is-open');
+
+  timelineEntries.forEach((item) => setEntryOpen(item, false));
+  if (shouldOpen) setEntryOpen(entry, true);
+}
+
+function filterTimeline(category) {
+  const visibleEntries = timelineEntries.filter(
+    (entry) => category === 'all' || entry.dataset.category === category,
+  );
+  const lastVisibleEntry = visibleEntries.at(-1);
+
+  timelineEntries.forEach((entry) => {
+    const isVisible = visibleEntries.includes(entry);
+    entry.classList.toggle('is-hidden', !isVisible);
+    entry.classList.toggle('is-last-visible', isVisible && entry === lastVisibleEntry);
+    if (!isVisible) setEntryOpen(entry, false);
   });
 
   filterButtons.forEach((button) => {
@@ -22,14 +45,19 @@ function filterTimeline(category) {
     button.setAttribute('aria-pressed', String(isActive));
   });
 
-  const count = matchingEvents.length;
-  countNumber.textContent = String(count);
-  countLabel.textContent = count === 1 ? 'momento' : 'momentos';
-  emptyState.hidden = count !== 0;
+  countNumber.textContent = String(visibleEntries.length);
+  countLabel.textContent = visibleEntries.length === 1 ? 'marco' : 'marcos';
+  emptyState.hidden = visibleEntries.length !== 0;
 }
 
 filterButtons.forEach((button) => {
   button.addEventListener('click', () => filterTimeline(button.dataset.filter));
+});
+
+timelineEntries.forEach((entry) => {
+  entry.querySelectorAll('.memory-orb, .detail-button').forEach((button) => {
+    button.addEventListener('click', () => toggleEntry(entry));
+  });
 });
 
 filterTimeline('all');
