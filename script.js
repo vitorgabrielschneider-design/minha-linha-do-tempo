@@ -44,6 +44,8 @@ const STARTER_MILESTONES = [
 ];
 
 const filterButtons = [...document.querySelectorAll('.filter-button')];
+const tabButtons = [...document.querySelectorAll('.nav-tab')];
+const tabPanels = [...document.querySelectorAll('.page-panel')];
 const timelineList = document.querySelector('.timeline-list');
 const countNumber = document.querySelector('.count-number');
 const countLabel = document.querySelector('.count-label');
@@ -159,6 +161,42 @@ function orderedMilestones() {
 function displayDate(milestone) {
   if (!milestone.date) return PHASES[milestone.period].emptyDate;
   return milestone.date;
+}
+
+function activateTab(name, { focusTab = false, scroll = true } = {}) {
+  const selectedTab = tabButtons.find((button) => button.dataset.tab === name);
+  if (!selectedTab) return;
+
+  tabButtons.forEach((button) => {
+    const isSelected = button === selectedTab;
+    button.setAttribute('aria-selected', String(isSelected));
+    button.tabIndex = isSelected ? 0 : -1;
+    button.classList.toggle('is-active', isSelected);
+  });
+
+  tabPanels.forEach((panel) => {
+    const isSelected = panel.id === selectedTab.getAttribute('aria-controls');
+    panel.hidden = !isSelected;
+    panel.classList.toggle('is-active', isSelected);
+  });
+
+  if (focusTab) selectedTab.focus();
+  if (scroll) {
+    const panel = document.getElementById(selectedTab.getAttribute('aria-controls'));
+    const destination = panel?.querySelector(name === 'principal' ? '.hero' : '.timeline-section');
+    destination?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function openNewMilestone() {
+  activateTab('timeline', { scroll: false });
+  form.reset();
+  document.querySelector('#milestone-id').value = '';
+  saveButton.textContent = 'Salvar marco';
+  cancelEditButton.hidden = true;
+  openEditor();
+  formWrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  document.querySelector('#milestone-title').focus();
 }
 
 function setEntryOpen(entry, isOpen) {
@@ -283,6 +321,14 @@ function renderTimeline() {
   countNumber.textContent = String(visible.length);
   countLabel.textContent = visible.length === 1 ? 'marco' : 'marcos';
   emptyState.hidden = visible.length !== 0;
+
+  Object.keys(PHASES).forEach((period) => {
+    const periodCount = milestones.filter((milestone) => milestone.period === period).length;
+    const summaryCount = document.querySelector(`[data-period-count="${period}"]`);
+    const summaryCard = document.querySelector(`[data-period-shortcut="${period}"]`);
+    if (summaryCount) summaryCount.textContent = String(periodCount);
+    if (summaryCard) summaryCard.setAttribute('aria-label', `Ver ${periodCount} ${periodCount === 1 ? 'marco' : 'marcos'} do ${PHASES[period].label}`);
+  });
 }
 
 function openEditor() {
@@ -441,6 +487,44 @@ async function importJSON() {
   }
 }
 
+tabButtons.forEach((button, index) => {
+  button.addEventListener('click', () => activateTab(button.dataset.tab));
+  button.addEventListener('keydown', (event) => {
+    let nextIndex = index;
+    if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabButtons.length;
+    else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+    else if (event.key === 'Home') nextIndex = 0;
+    else if (event.key === 'End') nextIndex = tabButtons.length - 1;
+    else return;
+
+    event.preventDefault();
+    activateTab(tabButtons[nextIndex].dataset.tab, { focusTab: true });
+  });
+});
+
+document.querySelectorAll('[data-switch-tab]').forEach((button) => {
+  button.addEventListener('click', () => activateTab(button.dataset.switchTab));
+});
+
+document.querySelectorAll('[data-period-shortcut]').forEach((button) => {
+  button.addEventListener('click', () => {
+    activeFilter = button.dataset.periodShortcut;
+    activateTab('timeline');
+    renderTimeline();
+  });
+});
+
+document.querySelectorAll('[data-open-editor]').forEach((button) => {
+  button.addEventListener('click', openNewMilestone);
+});
+
+document.querySelectorAll('.brand, [data-home-link]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    activateTab('principal');
+  });
+});
+
 filterButtons.forEach((button) => {
   button.addEventListener('click', () => {
     activeFilter = button.dataset.filter;
@@ -474,3 +558,4 @@ document.querySelector('#import-json-button').addEventListener('click', () => im
 importFile.addEventListener('change', importJSON);
 
 renderTimeline();
+activateTab('principal', { scroll: false });

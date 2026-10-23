@@ -1,10 +1,10 @@
 # Minha história em órbita
 
-Uma página pessoal responsiva em HTML, CSS e JavaScript puro. A linha do tempo vertical organiza os marcos em **Passado**, **Presente** e **Futuro**, com esferas conectadas, cartões expansíveis e uma paleta azul profundo + gelo.
+Uma página pessoal responsiva em HTML, CSS e JavaScript puro. A navegação tem uma aba **Principal**, com visão geral e contagens dinâmicas de Passado, Presente e Futuro, e a aba **Minha linha do tempo**, para consultar e editar os marcos da jornada.
 
 ## Como usar
 
-Abra `index.html` no navegador ou sirva a pasta com qualquer servidor estático. Não há dependências JavaScript nem processo de build. Use **Adicionar marco** para registrar ou editar conquistas, acontecimentos atuais e objetivos futuros. Cada marco inclui momento, data ou previsão opcional, título e descrição; a exclusão pede confirmação.
+Abra `index.html` no navegador ou sirva a pasta com qualquer servidor estático. Não há dependências JavaScript nem processo de build. Na aba Principal, selecione uma etapa para ver os marcos daquele período, abra a linha do tempo ou comece a adicionar um marco. Use as teclas de seta, Home e End para alternar entre as abas. Em Minha linha do tempo, cadastre ou edite conquistas, acontecimentos atuais e objetivos futuros. Cada marco inclui momento, data ou previsão opcional, título e descrição; a exclusão pede confirmação.
 
 ## Dados e privacidade
 
@@ -14,7 +14,7 @@ Na primeira visita, aparecem exemplos identificados como editáveis — não sã
 
 ## Arquivos
 
-- `index.html` — estrutura, editor, filtros e controles de backup.
-- `styles.css` — visual de constelação, cores, animações, responsividade e movimento reduzido.
-- `script.js` — cadastro, edição, remoção, ordenação, armazenamento local e importação/exportação JSON.
+- `index.html` — abas Principal e Minha linha do tempo, editor, filtros e controles de backup.
+- `styles.css` — visual de constelação, cores, navegação, animações, responsividade e movimento reduzido.
+- `script.js` — navegação por abas, resumos dinâmicos, cadastro, edição, remoção, armazenamento local e JSON.
 - `manus-routes.json` — manifesto da rota da página única.
