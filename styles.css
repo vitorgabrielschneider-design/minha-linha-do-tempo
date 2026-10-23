@@ -561,3 +561,39 @@ h1 span, .section-heading h2 span, .closing-copy h2 span { color: var(--blue); }
   .login-section { width: calc(100% - 38px); }
   .login-card { padding-right: 17px; padding-left: 17px; }
 }
+
+
+/* Acentos laranja da aba Entrar */
+:root {
+  --login-orange: #ffad70;
+  --login-orange-bright: #ffd0a3;
+  --login-orange-deep: #f07c3e;
+}
+
+.main-nav .nav-tab[data-tab="login"].is-active {
+  border-color: rgb(255 173 112 / 43%);
+  background: linear-gradient(115deg, rgb(240 124 62 / 18%), rgb(255 190 132 / 8%));
+  color: var(--login-orange-bright);
+  box-shadow: inset 0 0 18px rgb(240 124 62 / 7%), 0 0 17px rgb(240 124 62 / 8%);
+}
+.main-nav .nav-tab[data-tab="login"]:hover { color: var(--login-orange-bright); }
+.login-section::before { position: absolute; z-index: -1; top: 8%; left: -12%; width: 75%; height: 67%; border-radius: 50%; background: radial-gradient(ellipse, rgb(240 124 62 / 11%), transparent 68%); content: ""; filter: blur(11px); pointer-events: none; }
+.login-copy .eyebrow-star { color: var(--login-orange); text-shadow: 0 0 14px rgb(240 124 62 / 56%); }
+.login-copy h1 span { background: linear-gradient(100deg, var(--login-orange-bright), var(--login-orange), var(--login-orange-deep)); background-clip: text; color: transparent; -webkit-background-clip: text; }
+.login-orbit-ring { border-color: rgb(255 173 112 / 25%); }
+.login-orbit-ring-two { border-color: rgb(255 208 163 / 19%); }
+.login-orbit-core { border-color: rgb(255 225 199 / 80%); background: radial-gradient(circle at 31% 25%, #fff8f0 0 4%, #ffd0a3 18%, #ff995f 52%, #b75132 80%, #3c2e56 100%); box-shadow: inset -10px -12px 20px rgb(51 18 27 / 34%), inset 6px 5px 12px rgb(255 255 255 / 56%), 0 0 37px rgb(240 124 62 / 38%); }
+.login-orbit-star { color: var(--login-orange-bright); text-shadow: 0 0 13px var(--login-orange-deep); }
+.login-card { border-color: rgb(255 173 112 / 32%); background: linear-gradient(145deg, rgb(36 44 80 / 97%), rgb(19 27 57 / 99%)); box-shadow: 0 25px 60px rgb(2 8 27 / 34%), 0 0 42px rgb(240 124 62 / 5%), inset 0 1px rgb(255 255 255 / 4%); }
+.login-card::before { border-color: rgb(255 173 112 / 17%); box-shadow: 0 0 0 24px rgb(255 173 112 / 3%), 0 0 0 49px rgb(255 173 112 / 2%); }
+.login-card-mark { border-color: rgb(255 173 112 / 48%); background: linear-gradient(145deg, rgb(240 124 62 / 18%), rgb(255 208 163 / 7%)); color: var(--login-orange-bright); box-shadow: 0 0 26px rgb(240 124 62 / 16%); }
+.login-card-kicker { color: var(--login-orange); }
+.login-field input:focus { border-color: var(--login-orange); outline-color: rgb(240 124 62 / 20%); box-shadow: 0 0 19px rgb(240 124 62 / 8%); }
+.login-submit { border-color: rgb(255 173 112 / 67%); background: linear-gradient(112deg, rgb(240 124 62 / 31%), rgb(255 173 112 / 16%) 59%, rgb(255 208 163 / 8%)); box-shadow: inset 0 1px rgb(255 255 255 / 8%), 0 8px 22px rgb(240 124 62 / 8%); }
+.login-submit:hover { border-color: var(--login-orange-bright); background: linear-gradient(112deg, rgb(240 124 62 / 43%), rgb(255 173 112 / 23%) 59%, rgb(255 208 163 / 12%)); box-shadow: inset 0 1px rgb(255 255 255 / 10%), 0 12px 26px rgb(240 124 62 / 15%); }
+.login-submit span { color: var(--login-orange-bright); }
+.login-feedback { color: var(--login-orange-bright); }
+.login-demo-notice { border-color: rgb(255 173 112 / 25%); background: linear-gradient(105deg, rgb(240 124 62 / 9%), rgb(255 173 112 / 4%)); }
+.login-demo-notice > span:first-child { border-color: rgb(255 173 112 / 58%); color: var(--login-orange-bright); }
+.login-demo-notice strong { color: var(--login-orange-bright); }
+.login-return > span { color: var(--login-orange); }
