@@ -183,7 +183,12 @@ function activateTab(name, { focusTab = false, scroll = true } = {}) {
   if (focusTab) selectedTab.focus();
   if (scroll) {
     const panel = document.getElementById(selectedTab.getAttribute('aria-controls'));
-    const destination = panel?.querySelector(name === 'principal' ? '.hero' : '.timeline-section');
+    const destinations = {
+      principal: '.hero',
+      timeline: '.timeline-section',
+      login: '.login-section',
+    };
+    const destination = panel?.querySelector(destinations[name]);
     destination?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
@@ -518,11 +523,17 @@ document.querySelectorAll('[data-open-editor]').forEach((button) => {
   button.addEventListener('click', openNewMilestone);
 });
 
-document.querySelectorAll('.brand, [data-home-link]').forEach((link) => {
+document.querySelectorAll('[data-home-link]').forEach((link) => {
   link.addEventListener('click', (event) => {
     event.preventDefault();
     activateTab('principal');
   });
+});
+
+document.querySelector('#visual-login-form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  document.querySelector('#login-feedback').textContent =
+    'Demonstração visual: nenhum login foi realizado. Nenhum dado foi salvo ou enviado.';
 });
 
 filterButtons.forEach((button) => {

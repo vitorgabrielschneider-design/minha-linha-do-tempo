@@ -50,7 +50,19 @@
           aria-controls="panel-timeline"
           tabindex="-1"
           data-tab="timeline"
-        >Minha linha do tempo</button>
+          aria-label="Minha linha do tempo"
+        ><span class="nav-label-long">Minha linha do tempo</span><span class="nav-label-short" aria-hidden="true">Jornada</span></button>
+        <button
+          class="nav-tab"
+          id="tab-login"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-login"
+          tabindex="-1"
+          data-tab="login"
+          aria-label="Entrar — demonstração visual, sem autenticação"
+        >Entrar</button>
       </nav>
 
       <button class="header-link" id="header-add" type="button" data-open-editor>
@@ -252,6 +264,55 @@
             <h2 id="closing-title">O passado me trouxe até aqui.<br /><span>O futuro ainda é meu.</span></h2>
             <p>Uma conquista merece ser lembrada. Um plano merece um lugar no mapa. E o próximo ponto ainda pode surpreender.</p>
             <button class="text-link text-button" type="button" data-switch-tab="principal">Voltar à aba Principal <span aria-hidden="true">↑</span></button>
+          </div>
+        </section>
+      </section>
+
+      <section
+        class="page-panel"
+        id="panel-login"
+        role="tabpanel"
+        aria-labelledby="tab-login"
+        tabindex="0"
+        hidden
+      >
+        <section class="login-section" aria-labelledby="login-title">
+          <div class="login-copy">
+            <p class="eyebrow"><span class="eyebrow-star" aria-hidden="true">✦</span> SUA HISTÓRIA, SEU ESPAÇO</p>
+            <h1 id="login-title">Um lugar para <span>continuar.</span></h1>
+            <p class="login-intro">Esta aba é uma demonstração visual da tela de entrada — a experiência de login real não está ativada.</p>
+            <div class="login-orbit" aria-hidden="true">
+              <span class="login-orbit-ring login-orbit-ring-one"></span>
+              <span class="login-orbit-ring login-orbit-ring-two"></span>
+              <span class="login-orbit-star">✦</span>
+              <span class="login-orbit-core"></span>
+              <span class="login-orbit-caption">UM PRÓXIMO CAPÍTULO</span>
+            </div>
+          </div>
+
+          <div class="login-card">
+            <div class="login-card-heading">
+              <span class="login-card-mark" aria-hidden="true">✦</span>
+              <p class="login-card-kicker">MINHA HISTÓRIA EM ÓRBITA</p>
+              <h2>Entrar</h2>
+              <p>Preencha os campos para visualizar o formulário de acesso.</p>
+            </div>
+
+            <form class="visual-login-form" id="visual-login-form" autocomplete="off">
+              <div class="login-field">
+                <label for="visual-email">E-mail</label>
+                <input id="visual-email" type="email" inputmode="email" placeholder="voce@exemplo.com" autocomplete="off" />
+              </div>
+              <div class="login-field">
+                <label for="visual-password">Senha</label>
+                <input id="visual-password" type="password" placeholder="Digite sua senha" autocomplete="off" />
+              </div>
+              <button class="login-submit" type="submit">Entrar <span aria-hidden="true">→</span></button>
+              <p class="login-feedback" id="login-feedback" role="status" aria-live="polite"></p>
+            </form>
+
+            <p class="login-demo-notice"><span aria-hidden="true">i</span><span><strong>Apenas visual.</strong> Este formulário não autentica, não salva e não envia o e-mail ou a senha.</span></p>
+            <button class="text-link text-button login-return" type="button" data-switch-tab="principal">Voltar à aba Principal <span aria-hidden="true">↗</span></button>
           </div>
         </section>
       </section>
